@@ -31,6 +31,7 @@ const updateNote =(text)=>{
   )))
 }
 
+
   // Create a new note function
 
   const createNewNote = ()=>{
