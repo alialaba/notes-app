@@ -155,11 +155,14 @@ button:focus,
   width: 100%;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   /* color:red; */
   margin-bottom: .7em;
   border-radius: 6px;
+}
+.title img{
+  margin-left: 10px;
 }
 
 .title--delete {

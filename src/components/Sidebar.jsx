@@ -6,7 +6,7 @@ export default function({newNote, notes, currentNote, setCurNoteId}){
            <div className={`title ${note.id === currentNote.id ? "selected-note" : ""}`}
 
             onClick={()=> setCurNoteId(note.id)}>
-               {/* <img src={img}/> */}
+               <img src={img}/>
            <h4 className="text-snippet">{note.body.split("\n")[0]} </h4>
            </div>
         </div>

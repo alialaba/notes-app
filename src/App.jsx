@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Editor from "./components/Editor"
 import Sidebar from './components/Sidebar'
 import Split from 'react-split';
@@ -8,19 +8,19 @@ import "react-mde/lib/styles/css/react-mde-all.css";
 
 
 export default function App() {
-  const [notes, setNotes] = useState([]);
+  //lazy state initialization (retrieve notes from local storage)
+  const [notes, setNotes] = useState( () => JSON.parse(localStorage.getItem("notes")) || []);
   // check if notes[0] exists Before getting notes[0].id
   const [curNoteId, setCurNoteId] = useState((notes[0]  && notes[0].id) || "");
 
-  /*
-  task 1: display sidebar and editor when their is a note .
-  task 1b: display editor only if user is on the currentNoteId && 
-  task 2: As a user, I want to be abble to create new note (this can be achieve using  id: nanoid(),
-            body: "# Type your markdown note's title here")
-  task 3 : As a user i want to be to update my note (tips using paramter of text and value of body: text);
-  task 4: display current note on the editor (findcurrentnote) || display first note 
-  
-  */
+
+
+//sideeffect that set note local storage
+
+  useEffect(()=>{
+    localStorage.setItem("notes",  JSON.stringify(notes))
+
+  },[notes])
 
 //function that update note 
 const updateNote =(text)=>{
