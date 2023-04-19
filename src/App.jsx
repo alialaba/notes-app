@@ -22,18 +22,24 @@ export default function App() {
 
   },[notes])
 
-//function that update note 
+//function that move  updated/modified note to the top 
 const updateNote =(text)=>{
-  setNotes(oldNotes => oldNotes.map(oldNote =>(
-
-    //if oldnote id equals to currNoteId
-    oldNote.id === curNoteId ? {...oldNote, body: text} : oldNote
-  )))
+  setNotes(oldNotes =>{
+  let updatedArr = [];
+  for(let i = 0; i < oldNotes.length; i++){
+    let oldNote  = oldNotes[i] ;
+    if(oldNote.id === curNoteId){
+      updatedArr.unshift({...oldNote, body: text});
+    }else{
+      updatedArr.push(oldNote)
+    }
+  }
+  return updatedArr
+  })
 }
 
 
   // Create a new note function
-
   const createNewNote = ()=>{
     const newNote ={
       id: nanoid(),
