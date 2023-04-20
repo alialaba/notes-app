@@ -39,6 +39,13 @@ const updateNote =(text)=>{
 }
 
 
+
+function deleteNote(event, noteId){
+  // prevents the propagation of an event to its parent elements 
+  event.stopPropagation();
+  setNotes(notes => notes.filter((note)=>(note.id !== noteId)) )
+
+}
   // Create a new note function
   const createNewNote = ()=>{
     const newNote ={
@@ -69,7 +76,9 @@ className="split">
 newNote={createNewNote} 
 currentNote={findCurrentNote()} 
 setCurNoteId={setCurNoteId} 
-notes={notes} />
+notes={notes} 
+deleteNote={deleteNote}
+/>
 
 {curNoteId &&  notes.length > 0 && 
   <Editor 
