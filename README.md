@@ -38,7 +38,7 @@ Users should be able to:
 
 ### Screenshot
 
-![insure landing page](./images/screenshot.png)
+![Note App](./src/assets/screenshoot.png)
 
 
 ### Links
@@ -54,10 +54,13 @@ Users should be able to:
 - Reactjs
 - CSS custom properties
 - Flexbox
+- React Components
 
 
 ### What I learned
-<!-- - Strengthen my knowledge on BEM pattern for naming convention. -->
+- Strengthen my knowledge on Reactjs and react hooks.
+- Solving  skills with array methods
+- creating components
 
 
 ### Continued development

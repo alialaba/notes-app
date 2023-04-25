@@ -36,11 +36,13 @@ const showMore=()=>{
     return(
        
         <aside className="sidebar pane">
+            <div>
             <div className="sidebar__header">
-                <button className="sidebar__new-note" onClick={newNote}>+ New Note</button>
+                <button className="sidebar__new-note" onClick={newNote}>+   New Note</button>
             </div>
             {noteElements.length ? noteElements : "loading..."}
            <button className="show-more" onClick={showMore}>show more</button> 
+           </div>
            
         </aside>
     );

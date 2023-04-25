@@ -10,19 +10,21 @@ import "react-mde/lib/styles/css/react-mde-all.css";
 export default function App() {
   //lazy state initialization (retrieve notes from local storage)
   const [notes, setNotes] = useState( () => JSON.parse(localStorage.getItem("notes")) || []);
+
   // check if notes[0] exists Before getting notes[0].id
   const [curNoteId, setCurNoteId] = useState((notes[0]  && notes[0].id) || "");
 
 
 
-//sideeffect that set note local storage
+//Store note in window local storage
 
   useEffect(()=>{
     localStorage.setItem("notes",  JSON.stringify(notes))
 
   },[notes])
 
-//function that move  updated/modified note to the top 
+
+// Move  updated/modified note to the top 
 const updateNote =(text)=>{
   setNotes(oldNotes =>{
   let updatedArr = [];
@@ -39,14 +41,16 @@ const updateNote =(text)=>{
 }
 
 
-
+//Delete note
 function deleteNote(event, noteId){
   // prevents the propagation of an event to its parent elements 
   event.stopPropagation();
   setNotes(notes => notes.filter((note)=>(note.id !== noteId)) )
 
 }
-  // Create a new note function
+
+
+  // Create a new note 
   const createNewNote = ()=>{
     const newNote ={
       id: nanoid(),
@@ -56,6 +60,8 @@ function deleteNote(event, noteId){
     setCurNoteId(newNote.id)
   }
 
+
+  //find curremt note
   function findCurrentNote (){
     return notes.find(note=>{
       return note.id === curNoteId }) || notes[0] ;
