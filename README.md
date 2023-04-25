@@ -44,7 +44,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/alialaba/notes-app)
-- Live Site URL: [Add live site URL here]()
+- Live Site URL: [Add live site URL here](https://note-app-ali.netlify.app/)
 
 ## My process
 
